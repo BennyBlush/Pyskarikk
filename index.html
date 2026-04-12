@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Иконки -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">MY SHOP</div>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="products-grid" id="products">
+            <!-- Товар 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <!-- Замените 'product.jpg' на ссылку на ваше фото -->
+                    <img src="https://via.placeholder.com/300" alt="Товар">
+                </div>
+                <div class="product-info">
+                    <h3>801 TYPE</h3>
+                    <p class="price">1500 ₽</p>
+                    <button class="add-btn" onclick="addToCart('801 TYPE', 1500)">В корзину</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Окно корзины -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleCart()">&times;</span>
+            <h2>Ваша корзина</h2>
+            <div id="cart-items">
+                <!-- Сюда будут добавляться товары -->
+                <p>Корзина пуста</p>
+            </div>
+            <div id="cart-total"></div>
+            <button id="tg-button" class="tg-send-btn" onclick="sendToTelegram()">
+                <i class="fab fa-telegram-plane"></i> Перейти в Телеграм
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
