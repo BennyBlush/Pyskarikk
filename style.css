@@ -39,29 +39,63 @@ header {
     font-size: 24px;
     font-weight: bold;
     letter-spacing: 2px;
-    color: #ff9f43; /* Оранжевый логотип */
+    color: #ff9f43;
 }
 
-/* Описание товара */
-.description {
-    font-size: 14px;
-    color: #bdc3c7;
-    margin: 10px 0;
-    line-height: 1.4;
+/* Сетка товаров - теперь центрирует карточки */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
+    justify-content: center; /* Центрирует товары, если их мало */
 }
 
+/* Карточка товара */
 .product-card {
     background: rgba(40, 40, 40, 0.6);
     border-radius: 15px;
     overflow: hidden;
     transition: 0.3s;
     border: 1px solid #4a2c00;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирует содержимое внутри */
 }
 
 .product-card:hover {
     transform: translateY(-5px);
     border-color: #ff9f43;
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.product-img {
+    width: 100%;
+    height: 250px;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ТОТ САМЫЙ БЛОК, КОТОРОГО НЕ ХВАТАЛО */
+.product-info {
+    padding: 20px;
+    text-align: center; /* Центрирует текст */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирует кнопку и цену */
+    width: 100%;
+}
+
+.description {
+    font-size: 14px;
+    color: #bdc3c7;
+    margin: 10px 0;
+    line-height: 1.4;
+    min-height: 40px; /* Чтобы карточки были одной высоты */
 }
 
 .price {
@@ -80,6 +114,7 @@ header {
     cursor: pointer;
     font-weight: bold;
     width: 100%;
+    max-width: 200px; /* Чтобы кнопка не была слишком широкой */
     transition: 0.2s;
 }
 
@@ -87,7 +122,7 @@ header {
     transform: scale(0.95);
 }
 
-/* Стили для летящих точек (частиц) */
+/* Эффект частиц */
 .particle {
     position: fixed;
     width: 8px;
@@ -99,9 +134,12 @@ header {
     box-shadow: 0 0 10px #ff9f43;
 }
 
-/* Остальные стили корзины оставь как были раньше */
-.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
-.modal-content { background: #1e1e1e; margin: 10% auto; padding: 25px; width: 90%; max-width: 400px; border-radius: 15px; border: 1px solid #ff9f43; }
+/* Корзина */
 .cart-icon { cursor: pointer; position: relative; font-size: 22px; color: #ff9f43; }
 #cart-count { background: white; color: black; font-size: 12px; padding: 2px 6px; border-radius: 50%; position: absolute; top: -10px; right: -10px; }
-.tg-send-btn { background: #0088cc; color: white; border: none; padding: 15px; width: 100%; border-radius: 10px; cursor: pointer; margin-top: 20px; }
+
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+.modal-content { background: #1e1e1e; margin: 10% auto; padding: 25px; width: 90%; max-width: 400px; border-radius: 15px; border: 1px solid #ff9f43; position: relative; color: white;}
+.close { position: absolute; right: 20px; top: 10px; font-size: 28px; cursor: pointer; }
+.tg-send-btn { background: #0088cc; color: white; border: none; padding: 15px; width: 100%; border-radius: 10px; cursor: pointer; margin-top: 20px; font-weight: bold;}
+
